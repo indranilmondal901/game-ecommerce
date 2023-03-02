@@ -3,6 +3,7 @@ import { context } from "../../context/context";
 import { Link } from "react-router-dom";
 import "../cartPage/Cart.css";
 import NavBar from "../navbar/Navbar";
+// import Payment from "../paymentpage/Payment";
 
 const Cart = () => {
   const { cartData } = useContext(context);
@@ -12,7 +13,6 @@ const Cart = () => {
     total = total + sd[1];
     return total;
   })
-
   return (
     <div>
       <NavBar/>
@@ -38,6 +38,7 @@ const Cart = () => {
           <button id="payment_button"> Make Payment</button>
         </Link>
       </div>
+      {/* <Payment total={total}/> */}
     </div>
   )
 }
