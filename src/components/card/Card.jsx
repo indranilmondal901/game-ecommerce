@@ -16,7 +16,7 @@ const Card = () => {
         <>
             <NavBar />
             {gameData?.map((game) =>
-                <div id="card">
+                <div id="card" key={game.id}>
                     <h1 id="fp_title">{game.title}</h1>
                     <Link to="/details">
                         <img id="fp_img" src={game.image} alt={game.title} onClick={() => { showDetails(game.title, game.image, game.description, game.price) }} />

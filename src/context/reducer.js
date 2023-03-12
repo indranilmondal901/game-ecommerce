@@ -19,6 +19,11 @@ const reducer = (state, action) => {
           ...state,
           details: action.payload
         })
+        case "paymentAmount":
+          return({
+            ...state,
+            amount: action.payload
+          })
     default: {
       return null
     }

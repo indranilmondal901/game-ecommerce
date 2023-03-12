@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { context } from '../../context/context';
 import StripeCheckout from 'react-stripe-checkout';
 import NavBar from '../navbar/Navbar';
 
 
-const Payment = (total) => {
+const Payment = () => {
     // console.log(total.total);
+    const {amount} = useContext(context);
+    // console.log(amount +"from payment")
     
     const onToken =(token)=>{
         console.log(token)
@@ -17,7 +20,7 @@ const Payment = (total) => {
                 token={onToken}
                 name="Indranil's Game Store"
                 currency='inr'
-                amount={4000*100}
+                amount={amount*100}
                 stripeKey="pk_test_51MhE3ISEjDycde8d4OlPlfaL8dqIgGecZArpAH8jCoDs6aC4BNrn3JSIDvKvw0vnkw3OyYoeSIW102wsjrqaAvxP00gTr85HFI"
             />
         </div>

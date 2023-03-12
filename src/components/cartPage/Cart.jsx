@@ -6,7 +6,7 @@ import NavBar from "../navbar/Navbar";
 // import Payment from "../paymentpage/Payment";
 
 const Cart = () => {
-  const { cartData } = useContext(context);
+  const { cartData , HandlePayment} = useContext(context);
 
   let total = 0;
   cartData.map((sd) => {
@@ -18,14 +18,13 @@ const Cart = () => {
       <NavBar/>
       <h1 id="pageName">Your Cart </h1>
       {
-        cartData.map((singleGame) => {
+        cartData.map((singleGame,index) => { 
+          console.log(index);
           return (
-            <>
-              <div id="cart_details">
-                <h3 id="item_name">{singleGame[0]} </h3>
-                <h3 id="item_price">{singleGame[1]}</h3>
+              <div id="cart_details" key={index}>
+                <h3 id="item_name" >{singleGame[0]} </h3>
+                <h3 id="item_price" >{singleGame[1]}</h3>
               </div>
-            </>
           )
         })
       }
@@ -35,7 +34,7 @@ const Cart = () => {
       </div>
       <div id="detailsPage_btn_div">
         <Link to="/payment">
-          <button id="payment_button"> Make Payment</button>
+          <button id="payment_button" onClick={()=>{HandlePayment(total)}}> Make Payment</button>
         </Link>
       </div>
       {/* <Payment total={total}/> */}
